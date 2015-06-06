@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ControladorPersonaje : MonoBehaviour {
 
-	public float fuerzaSalto = 100f; 		// Fuerza con la que saltará el personaje.
+	public float fuerzaSalto = 7f; 			// Fuerza con la que saltará el personaje.
 	public Transform comprobadorSuelo; 		// Me permite obtener los datos que corresponden a la posición.
 	public LayerMask mascaraSuelo; 			// Se utilizará para indicar con que capa colisionará.
 	public float velocidad = 2f;
@@ -41,6 +41,7 @@ public class ControladorPersonaje : MonoBehaviour {
 	void Update (){
 		if(Input.GetMouseButtonDown(0)){
 			corriendo = true;
+			NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeEmpiezaACorrer");
 		}
 		// Esto se hace porque es un infinity runner.
 		if (Input.GetKey(KeyCode.Space)){
